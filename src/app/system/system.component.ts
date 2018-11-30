@@ -11,6 +11,6 @@ export class SystemComponent implements OnInit {
     constructor (private router: Router) {}
 
     ngOnInit() {
-        this.router.navigate(['/bill']);
+        this.router.navigate(['/system', 'bill']);
     }
 }
