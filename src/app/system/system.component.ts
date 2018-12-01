@@ -1,6 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
-
 
 @Component({
     selector: 'alc-system',
@@ -8,9 +6,8 @@ import { Router } from '@angular/router';
 })
 export class SystemComponent implements OnInit {
 
-    constructor (private router: Router) {}
+    constructor () {}
 
     ngOnInit() {
-        this.router.navigate(['/system', 'bill']);
     }
 }

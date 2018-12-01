@@ -11,6 +11,9 @@ import { RecordsPageComponent } from './records-page/records-page.component';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { DropdownDirective } from './shared/directives/dropdown.directive';
+import { BillCardComponent } from './bill-page/bill-card/bill-card.component';
+import { CurrencyCardComponent } from './bill-page/currency-card/currency-card.component';
+import { BillService } from './shared/services/bill.service';
 
 
 @NgModule({
@@ -28,6 +31,11 @@ import { DropdownDirective } from './shared/directives/dropdown.directive';
         HeaderComponent,
         SidebarComponent,
         DropdownDirective,
+        BillCardComponent,
+        CurrencyCardComponent,
+    ],
+    providers: [
+        BillService,
     ]
 })
 export class SystemModule {}
