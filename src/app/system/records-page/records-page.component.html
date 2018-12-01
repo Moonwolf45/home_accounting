@@ -4,10 +4,14 @@
   </h3>
 </div>
 
-<section class="section">
+<section class="section text-center" *ngIf="!isLoaded">
+  Loading...
+</section>
+
+<section class="section" *ngIf="isLoaded">
   <div class="row">
     <div class="col-md-6">
-      <alc-add-category (onCategoryAdd)="newCategoryAdded($event)"></alc-add-category>
+      <alc-add-category (categoryAdd)="newCategoryAdded($event)"></alc-add-category>
     </div>
 
     <div class="col-md-6">
@@ -17,7 +21,7 @@
 
   <div class="row">
     <div class="col-md-6">
-      <alc-edit-category></alc-edit-category>
+      <alc-edit-category [categories]="categories" (categoryEdit)="categoryWhasEdit($event)"></alc-edit-category>
     </div>
   </div>
 </section>
