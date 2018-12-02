@@ -8,10 +8,9 @@
     }
   ],
   "bill": {
-    "id": 1,
-    "user_id": 1,
-    "value": 100000,
-    "currency": "RUB"
+    "value": 99900,
+    "currency": "RUB",
+    "user_id": 1
   },
   "categories": [
     {
@@ -37,6 +36,12 @@
       "user_id": 2,
       "name": "Другая машина",
       "capacity": 5000
+    },
+    {
+      "user_id": 1,
+      "name": "Остальные расходы",
+      "capacity": 10000,
+      "id": 5
     }
   ],
   "events": [
@@ -79,6 +84,14 @@
       "date": "10.06.2017 14:01:58",
       "id": 5,
       "description": "Заправка + проход ТО"
+    },
+    {
+      "type": "outcome",
+      "amount": 100,
+      "category": 5,
+      "date": "02.12.2018 20:41:36",
+      "description": "Непредвиденные расходы",
+      "id": 6
     }
   ]
 }
