@@ -1,3 +1,3 @@
 export class ALCEvent {
-    constructor (public type: string, public amount: number, public category: number, public date: string, public description: string, public id?: number) {}
+    constructor (public user_id: number, public type: string, public amount: number, public category: number, public date: string, public description: string, public id?: number) {}
 }

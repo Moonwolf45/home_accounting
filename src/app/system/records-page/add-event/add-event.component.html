@@ -6,11 +6,11 @@
   </div>
 
   <div class="card-block">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div class="alert alert-{{ message.type }}" *ngIf="message.text">
-        {{ message.text }}
-      </div>
+    <div class="alert alert-{{ message.type }}" *ngIf="message.text">
+      {{ message.text }}
+    </div>
 
+    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
       <div class="form-group">
         <label class="control-label" for="event-category">Выберите категорию</label>
         <select class="form-control" id="event-category" name="category" [ngModel]="1" ngModel required>

@@ -1,7 +1,8 @@
-import { Component, Input, OnDestroy } from '@angular/core';
+import { Component, Input, OnDestroy, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import * as moment from 'moment';
 import { mergeMap } from 'rxjs/operators';
+import { Subscription } from 'rxjs';
 
 import { Category } from '../../shared/models/category.model';
 import { ALCEvent } from '../../shared/models/event.model';
@@ -9,7 +10,6 @@ import { EventsService } from '../../shared/services/events.service';
 import { BillService } from '../../shared/services/bill.service';
 import { Bill } from '../../shared/models/bill.model';
 import { Message } from '../../../shared/models/message.model';
-import { Subscription } from 'rxjs';
 
 
 @Component({
@@ -17,7 +17,7 @@ import { Subscription } from 'rxjs';
     templateUrl: './add-event.component.html',
     styleUrls: ['./add-event.component.scss']
 })
-export class AddEventComponent implements OnDestroy {
+export class AddEventComponent implements OnInit, OnDestroy {
 
     sub1: Subscription;
     sub2: Subscription;
@@ -40,6 +40,10 @@ export class AddEventComponent implements OnDestroy {
         }, 3500);
     }
 
+    ngOnInit() {
+        this.message = new Message('success', '');
+    }
+
     onSubmit(form: NgForm) {
         console.log(form);
         let {amount} = form.value;
@@ -47,26 +51,26 @@ export class AddEventComponent implements OnDestroy {
             amount *= -1;
         }
 
-        const event = new ALCEvent(form.value.type, amount, +form.value.category, moment().format('DD.MM.YYYY HH:mm:ss'), form.value.description);
+        const event = new ALCEvent(this.user_id, form.value.type, amount, +form.value.category, moment().format('DD.MM.YYYY HH:mm:ss'), form.value.description);
 
         this.sub1 = this.billService.getBill(this.user_id).subscribe((bill: Bill) => {
             let value = 0;
             if (form.value.type === 'outcome') {
-                if (amount > bill.value) {
+                if (amount > bill[0].value) {
                     this.showMessage({
                         type: 'danger',
-                        text: `На счету недостаточно средств. Вам нехватает ${amount - bill.value}`
+                        text: `На счету недостаточно средств. Вам нехватает ${amount - bill[0].value}`
                     });
                     return;
                 } else {
-                    value = bill.value - amount;
+                    value = bill[0].value - amount;
                 }
             } else {
-                value = bill.value + amount;
+                value = bill[0].value + amount;
             }
 
-            this.sub2 = this.billService.updateBill({value, currency: bill.currency, user_id: bill.user_id}).pipe(mergeMap(() => this.eventsService.addEvent(event)))
-                .subscribe(() => {
+            this.sub2 = this.billService.updateBill({user_id: this.user_id, value, currency: bill[0].currency, id: bill[0].id}).pipe(mergeMap(() =>
+                this.eventsService.addEvent(event))).subscribe(() => {
                     form.setValue({
                         amount: 1,
                         description: ' ',

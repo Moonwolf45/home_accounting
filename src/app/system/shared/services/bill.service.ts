@@ -15,12 +15,16 @@ export class BillService extends BaseApi {
 
     apiKey = '3f155bc04e056b48e0fd0c39a07c4101';
 
+    addBill(bill: Bill): Observable<Bill> {
+        return this.post('/bill', bill);
+    }
+
     getBill(user_id: number): Observable<Bill> {
         return this.get(`/bill?user_id=${user_id}`);
     }
 
     updateBill(bill: Bill): Observable<Bill> {
-        return this.put('/bill', bill);
+        return this.put(`/bill/${bill.id}`, bill);
     }
 
     getCurretncy(): Observable<any> {

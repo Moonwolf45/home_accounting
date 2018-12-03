@@ -16,4 +16,8 @@ export class EventsService extends BaseApi {
     addEvent(event: ALCEvent): Observable<ALCEvent> {
         return this.post('/events', event);
     }
+
+    getEvents(user_id: number): Observable<ALCEvent[]> {
+        return this.get(`/events?user_id=${user_id}`);
+    }
 }
