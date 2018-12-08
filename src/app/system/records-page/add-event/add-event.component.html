@@ -1,46 +1,46 @@
 <div class="card">
-  <div class="card-header bordered">
-    <div class="header-block">
-      <h3 class="title">Добавить событие</h3>
-    </div>
-  </div>
-
-  <div class="card-block">
-    <div class="alert alert-{{ message.type }}" *ngIf="message.text">
-      {{ message.text }}
-    </div>
-
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div class="form-group">
-        <label class="control-label" for="event-category">Выберите категорию</label>
-        <select class="form-control" id="event-category" name="category" [ngModel]="1" ngModel required>
-          <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
-        </select>
-      </div>
-      <div class="form-group">
-        <label class="control-label">Выберите тип</label>
-        <div *ngFor="let type of types">
-          <label>
-            <input type="radio" class="radio" name="type" [value]="type.type" [ngModel]="'outcome'" required>
-            <span>{{ type.label }}</span>
-          </label>
+    <div class="card-header bordered">
+        <div class="header-block">
+            <h3 class="title">Добавить событие</h3>
         </div>
-      </div>
-      <div class="form-group" [ngClass]="{'has-error': amount.invalid && amount.touched}">
-        <label class="control-label" for="event-amount">Введите сумму</label>
-        <input type="number" class="form-control" id="event-amount" name="amount" #amount="ngModel" [ngModel]="1" min="1" required>
-        <span class="form-help-text" *ngIf="amount.invalid && amount.touched">
+    </div>
+
+    <div class="card-block">
+        <div class="alert alert-{{ message.type }}" *ngIf="message.text">
+            {{ message.text }}
+        </div>
+
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group">
+                <label class="control-label" for="event-category">Выберите категорию</label>
+                <select class="form-control" id="event-category" name="category" [ngModel]="1" ngModel required>
+                    <option *ngFor="let cat of categories" [value]="cat.id">{{ cat.name }}</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Выберите тип</label>
+                <div *ngFor="let type of types">
+                    <label>
+                        <input type="radio" class="radio" name="type" [value]="type.type" [ngModel]="'outcome'" required>
+                        <span>{{ type.label }}</span>
+                    </label>
+                </div>
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': amount.invalid && amount.touched}">
+                <label class="control-label" for="event-amount">Введите сумму</label>
+                <input type="number" class="form-control" id="event-amount" name="amount" #amount="ngModel" [ngModel]="1" min="1" required>
+                <span class="form-help-text" *ngIf="amount.invalid && amount.touched">
           Поле не может быть пустым
         </span>
-      </div>
-      <div class="form-group" [ngClass]="{'has-error': description.invalid && description.touched}">
-        <label for="event-description">Введите описание</label>
-        <input type="text" class="form-control" id="event-description" name="description" #description="ngModel" ngModel required>
-        <span class="form-help-text" *ngIf="description.invalid && description.touched">
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': description.invalid && description.touched}">
+                <label for="event-description">Введите описание</label>
+                <input type="text" class="form-control" id="event-description" name="description" #description="ngModel" ngModel required>
+                <span class="form-help-text" *ngIf="description.invalid && description.touched">
           Описание не может быть пустым
         </span>
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Добавить</button>
-    </form>
-  </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Добавить</button>
+        </form>
+    </div>
 </div>

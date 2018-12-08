@@ -9,7 +9,9 @@
     </div>
 </div>
 
-<div *ngIf="!isLoaded">Loading ...</div>
+<div *ngIf="!isLoaded">
+    <alc-loader></alc-loader>
+</div>
 
 <div *ngIf="isLoaded">
     <alc-history-chart [data]="chartData"></alc-history-chart>

@@ -9,7 +9,10 @@
     </div>
 </div>
 <section class="section">
-    <div class="row text-center" *ngIf="!isLoaded">Loading...</div>
+    <div class="row text-center" *ngIf="!isLoaded">
+        <alc-loader></alc-loader>
+    </div>
+
     <div class="row" *ngIf="isLoaded">
         <alc-bill-card [bill]="bill" [currency]="currency"></alc-bill-card>
 

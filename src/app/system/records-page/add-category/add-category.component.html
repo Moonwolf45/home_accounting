@@ -1,27 +1,27 @@
 <div class="card">
-  <div class="card-header bordered">
-    <div class="header-block">
-      <h3 class="title">Добавить категорию</h3>
+    <div class="card-header bordered">
+        <div class="header-block">
+            <h3 class="title">Добавить категорию</h3>
+        </div>
     </div>
-  </div>
 
-  <div class="card-block">
-    <form #f="ngForm" (ngSubmit)="onSubmit(f)">
-      <div class="form-group" [ngClass]="{'has-error': cname.invalid && cname.touched}">
-        <label class="control-label" for="category-name">Введите название</label>
-        <input type="text" class="form-control" id="category-name" #cname="ngModel" name="cname" ngModel required>
-        <span class="form-help-text" *ngIf="cname.invalid && cname.touched">
+    <div class="card-block">
+        <form #f="ngForm" (ngSubmit)="onSubmit(f)">
+            <div class="form-group" [ngClass]="{'has-error': cname.invalid && cname.touched}">
+                <label class="control-label" for="category-name">Введите название</label>
+                <input type="text" class="form-control" id="category-name" #cname="ngModel" name="cname" ngModel required>
+                <span class="form-help-text" *ngIf="cname.invalid && cname.touched">
           Название категории не может быть пустым
         </span>
-      </div>
-      <div class="form-group" [ngClass]="{'has-error': capacity.invalid && capacity.touched}">
-        <label class="control-label" for="category-value">Введите лимит</label>
-        <input type="number" class="form-control" id="category-value" #capacity="ngModel" name="capacity" [ngModel]="1" min="1" required>
-        <span class="form-help-text" *ngIf="capacity.invalid && capacity.touched">
+            </div>
+            <div class="form-group" [ngClass]="{'has-error': capacity.invalid && capacity.touched}">
+                <label class="control-label" for="category-value">Введите лимит</label>
+                <input type="number" class="form-control" id="category-value" #capacity="ngModel" name="capacity" [ngModel]="1" min="1" required>
+                <span class="form-help-text" *ngIf="capacity.invalid && capacity.touched">
           Поле не может быть пустым
         </span>
-      </div>
-      <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Добавить</button>
-    </form>
-  </div>
+            </div>
+            <button type="submit" class="btn btn-primary" [disabled]="f.invalid">Добавить</button>
+        </form>
+    </div>
 </div>
