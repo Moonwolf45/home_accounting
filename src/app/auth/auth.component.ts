@@ -1,10 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+
+import { fadeStateTrigger } from '../shared/animations/fade.animation';
+
 
 @Component({
     selector: 'alc-auth',
-    templateUrl: './auth.component.html'
-}) export class AuthComponent implements OnInit {
+    templateUrl: './auth.component.html',
+    animations: [fadeStateTrigger]
+})
+export class AuthComponent implements OnInit {
+
+    @HostBinding('@fade') auto = true;
 
     constructor (private router: Router) {}
 

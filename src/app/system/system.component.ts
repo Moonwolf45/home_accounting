@@ -1,13 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, HostBinding } from '@angular/core';
+
+import { fadeStateTrigger } from '../shared/animations/fade.animation';
+
 
 @Component({
     selector: 'alc-system',
-    templateUrl: './system.component.html'
+    templateUrl: './system.component.html',
+    animations: [fadeStateTrigger]
 })
-export class SystemComponent implements OnInit {
+export class SystemComponent {
 
-    constructor () {}
+    @HostBinding('@fade') auto = true;
 
-    ngOnInit() {
-    }
 }
