@@ -35,7 +35,7 @@
       </div>
       <div class="form-group" [ngClass]="{'has-error': description.invalid && description.touched}">
         <label for="event-description">Введите описание</label>
-        <textarea class="form-control" id="event-description" name="description" rows="6" #description="ngModel" ngModel required></textarea>
+        <input type="text" class="form-control" id="event-description" name="description" #description="ngModel" ngModel required>
         <span class="form-help-text" *ngIf="description.invalid && description.touched">
           Описание не может быть пустым
         </span>

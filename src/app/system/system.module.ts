@@ -15,7 +15,11 @@ import { BillCardComponent } from './bill-page/bill-card/bill-card.component';
 import { CurrencyCardComponent } from './bill-page/currency-card/currency-card.component';
 import { BillService } from './shared/services/bill.service';
 import { MometPipe } from './shared/pipes/momet.pipe';
-
+import { HistoryChartComponent } from './history-page/history-chart/history-chart.component';
+import { HistoryEventsComponent } from './history-page/history-events/history-events.component';
+import { HistoryDetailComponent } from './history-page/history-detail/history-detail.component';
+import { HistoryFilterComponent } from './history-page/history-filter/history-filter.component';
+import { FilterPipe } from './shared/pipes/filter.pipe';
 import { AddEventComponent } from './records-page/add-event/add-event.component';
 import { AddCategoryComponent } from './records-page/add-category/add-category.component';
 import { EditCategoryComponent } from './records-page/edit-category/edit-category.component';
@@ -41,6 +45,11 @@ import { EventsService } from './shared/services/events.service';
         BillCardComponent,
         CurrencyCardComponent,
         MometPipe,
+        HistoryChartComponent,
+        HistoryEventsComponent,
+        HistoryDetailComponent,
+        HistoryFilterComponent,
+        FilterPipe,
         AddEventComponent,
         AddCategoryComponent,
         EditCategoryComponent,

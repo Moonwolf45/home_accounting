@@ -6,6 +6,8 @@ import localeRu from '@angular/common/locales/ru';
 import localeRuExtra from '@angular/common/locales/extra/ru';
 import localeFr from '@angular/common/locales/fr';
 import localeFrExtra from '@angular/common/locales/extra/fr';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { AppComponent } from './app.component';
 import { AuthModule } from './auth/auth.module';
@@ -19,20 +21,22 @@ registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
 registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
-  imports: [
-    BrowserModule,
-    HttpClientModule,
-    AuthModule,
-    AppRoutingModule,
-    SystemModule
-  ],
-  providers: [
-      UsersService,
-      AuthService,
-  ],
-  bootstrap: [AppComponent]
+    declarations: [
+        AppComponent
+    ],
+    imports: [
+        BrowserModule,
+        HttpClientModule,
+        AuthModule,
+        AppRoutingModule,
+        SystemModule,
+        BrowserAnimationsModule
+    ],
+    providers: [
+        UsersService,
+        AuthService,
+    ],
+    bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}

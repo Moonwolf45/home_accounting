@@ -20,4 +20,8 @@ export class EventsService extends BaseApi {
     getEvents(user_id: number): Observable<ALCEvent[]> {
         return this.get(`/events?user_id=${user_id}`);
     }
+
+    getEventById(id: string): Observable<ALCEvent> {
+        return this.get(`/events/${id}`);
+    }
 }
