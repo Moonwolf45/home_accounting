@@ -13,6 +13,7 @@ import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './shared/services/users.service';
 import { AuthService } from './shared/services/auth.service';
+import { AuthGuard } from './shared/services/auth.guard';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
@@ -32,6 +33,7 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
     providers: [
         UsersService,
         AuthService,
+        AuthGuard
     ],
     bootstrap: [AppComponent]
 })
