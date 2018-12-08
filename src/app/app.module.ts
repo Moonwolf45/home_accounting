@@ -14,6 +14,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { UsersService } from './shared/services/users.service';
 import { AuthService } from './shared/services/auth.service';
 import { AuthGuard } from './shared/services/auth.guard';
+import { NotFoundComponent } from './shared/components/not-found/not-found.component';
 
 
 registerLocaleData(localeRu, 'ru-RU', localeRuExtra);
@@ -21,7 +22,8 @@ registerLocaleData(localeFr, 'fr-FR', localeFrExtra);
 
 @NgModule({
     declarations: [
-        AppComponent
+        AppComponent,
+        NotFoundComponent
     ],
     imports: [
         BrowserModule,
